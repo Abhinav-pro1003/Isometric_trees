@@ -35,7 +35,7 @@ $(EXEC): $(OBJECTS)
 # Run all test cases
 runtests: $(EXEC)
 	@echo -e "Running Test Cases"
-	@for i in `seq 10 $(NUM_TEST_CASES)`; do \
+	@for i in `seq 1 $(NUM_TEST_CASES)`; do \
 		echo -e "\n\033[0;36mTestcase $$i\033[0m"; \
 		echo -e "./$(EXEC) < $(TCDIR)/test$$i/input.txt"; \
 		./$(EXEC) < $(TCDIR)/test$$i/input.txt > output.txt; \
@@ -47,7 +47,7 @@ runtests: $(EXEC)
 			echo -e "\033[0;31mFAILED\033[0m"; \
 		fi \
 	done
-# 	@rm -f output.txt
+	@rm -f output.txt
 
 # Clean build artifacts
 clean:
